@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+
+        <script>
+			<!--Вывод каждую секунду-->
+			function printNumbers(from, to) {
+				let current = from;
+
+				let timerId = setInterval(function() {
+					alert(current);
+					if (current == to) {
+						clearInterval(timerId);
+					}
+					current++;
+				}, 1000);
+			}
+
+			function printNumbersRec(from, to) {
+				let current = from;
+
+				setTimeout(function go() {
+					alert(current);
+					if (current < to) {
+						setTimeout(go, 1000);
+					}
+					current++;
+				}, 1000);
+			}
+
+
+			printNumbers(5, 10);
+			printNumbersRec(5, 10);
+
+        </script>
+
+    </body>
+
+</html>
